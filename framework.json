@@ -1,0 +1,55 @@
+{
+  "AdoNetGrainStorage": [
+    "PubSubStore",
+    //"iToolCloudDatabaseOfTopic",
+    "iToolCloudDatabaseOfNotifyMessage",
+    "iToolCloudNodePackage",
+    "iToolCloudReminders",
+    "DatabaseConfigurationOfApiJSON"
+  ],
+
+  "Function": {
+    "IsDebug": true
+  },
+
+  "Cluster": {
+    "ClusterId": "SocketServiceCluster"
+  },
+
+  "ConnectionStrings": {
+    //"Zookeeper": "127.0.0.1:2181",
+    "Redis": "127.0.0.1:6379",
+    //"Kafka": "127.0.0.1:9092",
+    "MSSQL": "Data Source=127.0.0.1,2433;database=Project.Orleans;uid=sa;pwd=zhuJIAN320;MultipleActiveResultSets=true;"
+  },
+
+  "IsUseDashboard": true,
+
+  "KafkaPath": "G:\\kafka",
+
+  "ConsumeGroupTopic": "NotifyGroupMessage",
+
+  "Orleans": {
+    "ServiceId": "SocketService",
+    "SiloPort": "1245",
+    "GatewayPort": "1526"
+  },
+
+  "RabbitMQ": {
+    "HostName": "127.0.0.1",
+    "Port": 5672,
+    "UserName": "admin",
+    "Password": "admin",
+    "NameOfStream": "RMQProvider",
+    "QueueNamePrefix": "Orleans_",
+    "NumberOfPartition": 10
+  },
+
+  "UseDashboard": {
+    "Port": 9635,
+    "Host": "127.0.0.1",
+    "Username": "admin",
+    "Password": "30.3..",
+    "CounterUpdateIntervalMs": 2000
+  }
+}
