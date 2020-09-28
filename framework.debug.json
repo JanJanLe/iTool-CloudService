@@ -28,7 +28,7 @@
 
   "UseDashboard": {
     "Port": 9635,
-    "Host": "127.0.0.1",
+    //"Host": "127.0.0.1",
     "Username": "admin",
     "Password": "30.3..",
     "CounterUpdateIntervalMs": 2000
