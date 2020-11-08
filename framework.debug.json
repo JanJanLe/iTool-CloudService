@@ -40,7 +40,8 @@
     "iToolCloudDatabaseOfNotifyMessage",
     "iToolCloudNodePackage",
     "iToolCloudReminders",
-    "DatabaseConfigurationOfApiJSON"
+    "DatabaseConfigurationOfApiJSON",
+    "TransactionStore"
   ],
 
   "RabbitMQ": {
