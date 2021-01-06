@@ -1,39 +1,52 @@
 {
+  "Function": {
+    "IsDebug": true,
+    "Developers":[
+      {
+        "name": "管理员",
+        "user": "admin",
+        "password": "30.3.."
+      },
+      {
+        "name": "孟小飞",
+        "user": "mxf",
+        "password": "mxf123"
+      }
+    ]
+  },
+
   "AdoNetGrainStorage": [
     "PubSubStore",
-    //"iToolCloudDatabaseOfTopic",
+	"iToolNotifyService",
+    "ChannelServiceStateStorge",
     "iToolCloudDatabaseOfNotifyMessage",
     "iToolCloudNodePackage",
     "iToolCloudReminders",
-    "DatabaseConfigurationOfApiJSON"
+    "iToolDeveloperMembers",
+    "DatabaseConfigurationOfApiJSON",
+    "TransactionStore",
+    "BuildChannelTokenStateStorge"
   ],
 
-  "Function": {
-    "IsDebug": true
-  },
-
-  "Cluster": {
-    "ClusterId": "SocketServiceCluster",
-    //"advertisedIP": "47.104.181.71"
-  },
-
   "ConnectionStrings": {
-    "Zookeeper": "127.0.0.1:2181",
-    "Redis": "47.104.181.71:6379,password=Mage05Zj",
-    "Kafka": "127.0.0.1:9092",
     "MSSQL": "Data Source=47.104.181.71,2017;database=Project.Orleans;uid=sa;pwd=Mage@5Zj;MultipleActiveResultSets=true;"
+  },
+
+  "Orleans": {
+    "advertisedIP": "47.104.181.71",
+    "ClusterId": "SocketServiceCluster",
+    "ServiceId": "SocketService",
+    "SiloPort": "1245",
+    "GatewayPort": "1526"
   },
 
   "IsUseDashboard": true,
 
-  "KafkaPath": "G:\\kafka",
-
-  "ConsumeGroupTopic": "NotifyGroupMessage",
-
-  "Orleans": {
-    "ServiceId": "SocketService",
-    "SiloPort": "1245",
-    "GatewayPort": "1526"
+  "UseDashboard": {
+    "Port": 9635,
+    "Username": "admin",
+    "Password": "30.3..",
+    "CounterUpdateIntervalMs": 2000
   },
 
   "RabbitMQ": {
@@ -43,14 +56,7 @@
     "Password": "30.3..",
     "NameOfStream": "RMQProvider",
     "QueueNamePrefix": "Orleans_",
-    "NumberOfPartition": 10
-  },
-
-  "UseDashboard": {
-    "Port": 9635,
-    "Host": "127.0.0.1",
-    "Username": "admin",
-    "Password": "30.3..",
-    "CounterUpdateIntervalMs": 2000
+    // 目前只支持一个分区
+    "NumberOfPartition": 1
   }
 }

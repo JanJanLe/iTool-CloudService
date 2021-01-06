@@ -1,56 +1,62 @@
-﻿{
-  "KafkaPath": "F:\\kafka",
-  "ConsumeGroupTopic": "NotifyGroupMessage",
-
-  "ConnectionStrings": {
-    "Zookeeper": "127.0.0.1:2181",
-    "Redis": "47.104.181.71:6379,password=Mage05Zj",
-    "Kafka": "127.0.0.1:9092",
-    "MSSQL": "Data Source=DESKTOP-9C30CMA\\SQLEXPRESS;database=Project.Orleans;uid=sa;pwd=sa;MultipleActiveResultSets=true;"
+{
+  "Function": {
+    "IsDebug": true,
+    "Developers":[
+      {
+        "name": "管理员",
+        "user": "admin",
+        "password": "30.3.."
+      },
+      {
+        "name": "孟小飞",
+        "user": "mxf",
+        "password": "mxf123"
+      }
+    ]
   },
 
-  "Function": {
-    "IsDebug": true
+  "AdoNetGrainStorage": [
+    "PubSubStore",
+    "iToolNotifyService",
+    "ChannelServiceStateStorge",
+    "iToolCloudDatabaseOfNotifyMessage",
+    "iToolCloudNodePackage",
+    "iToolCloudReminders",
+    "iToolDeveloperMembers",
+    "DatabaseConfigurationOfApiJSON",
+    "TransactionStore",
+    "BuildChannelTokenStateStorge"
+  ],
+
+  "ConnectionStrings": {
+    "MSSQL": "Data Source=172.17.64.1,2433;database=Project.Orleans;uid=sa;pwd=zhuJIAN320;MultipleActiveResultSets=true;"
   },
 
   "Orleans": {
+    "advertisedIP": "172.17.64.1",
+    "ClusterId": "SocketServiceCluster",
     "ServiceId": "SocketService",
     "SiloPort": "12459",
     "GatewayPort": "15269"
-  },
-
-  "Cluster": {
-    "ClusterId": "SocketServiceCluster"
-    // "advertisedIP": "47.104.181.71"
   },
 
   "IsUseDashboard": true,
 
   "UseDashboard": {
     "Port": 9635,
-    //"Host": "127.0.0.1",
     "Username": "admin",
     "Password": "30.3..",
     "CounterUpdateIntervalMs": 2000
   },
 
-  "AdoNetGrainStorage": [
-    "PubSubStore",
-    //"iToolCloudDatabaseOfTopic",
-    "iToolCloudDatabaseOfNotifyMessage",
-    "iToolCloudNodePackage",
-    "iToolCloudReminders",
-    "DatabaseConfigurationOfApiJSON",
-    "TransactionStore"
-  ],
-
   "RabbitMQ": {
-    "HostName": "rabbit.itool.store",
+    "HostName": "172.17.64.1",
     "Port": 5672,
-    "UserName": "magey",
-    "Password": "30.3..",
+    "UserName": "admin",
+    "Password": "admin",
     "NameOfStream": "RMQProvider",
     "QueueNamePrefix": "Orleans_",
+    // 目前只支持一个分区
     "NumberOfPartition": 1
   }
 }

@@ -16,59 +16,85 @@ function codeFormat(value) {
 	if (typeof moduleExports == "function") {
 		let parameter = getParameterNames(moduleExports);
 		let parameterStr = parameter.length ? "," + parameter.join(",") : "";
-		return `module.exports = async function(callback, system ${parameterStr}) {
+		return `
+var tryCatch = function(action){
+	try{
+		action();
+	} catch (e){
+		//TODO handle the exception
+	}
+}
 
-						if(!system) {
-							system = {};
-						}
+module.exports = async function(callback, system ${parameterStr}) {
 
-						if(!system.channel) {
-							system.channel = {};
-						}
+	if(!system) {
+		system = {};
+	}
+	if (!system.channel) {
+		system.channel = {};
+	}
+
+	if (system.channel.parameter) {
+		tryCatch(function(){
+			system.channel.parameter = JSON.parse(system.channel.parameter);
+		});
+	}
+
+	if (!system.sesstion) {
+		system.sesstion = {};
+	} else {
+		tryCatch(function(){
+			system.sesstion = JSON.parse(system.sesstion);
+		});
+	}
 	
-						if(!system.debugs) {
-							system.debugs = [];
-						}
+	if(!system.debugs) {
+		system.debugs = [];
+	}
 	
-						if(!system.notifys) {
-							system.notifys = [];
-						}
+	if(!system.notifys) {
+		system.notifys = [];
+	}
 
-						system.Notify = function(channel, message) {
-						  system.notifys.push({
-							channel: channel.toString(),
-							message: message.toString()
-						  });
-						};
+	system.ClearChannel = function() {
+		system.sesstion = null;
+		system.channel.key = null;
+		system.channel.parameter = null;
+	};
 
-						var console = {
-							log:function() {
-								if (system.isdebug){
-									if (arguments.length) {
-										system.debugs.push(arguments.length == 1 ? arguments[0] : arguments);
-									}
-								}
-							}
-						};
+	system.Notify = function(channel, message) {
+		system.notifys.push({
+			channel: channel.toString(),
+			message: message.toString()
+		});
+	};
 
-                      ${value.replace(/module.exports/g, 'var module_exports_action')}
-                       module_exports_action = module_exports_action.bind(system);
-                      try{
-                        system.result = await module_exports_action(${parameter.join(
-			","
-		)});
-                      } catch(ex) {
-                        callback(ex, null); 
-                      }
+	var console = {
+		log:function() {
+			if (system.isdebug){
+				if (arguments.length) {
+					system.debugs.push(arguments.length == 1 ? arguments[0] : arguments);
+				}
+			}
+		}
+	};
 
-					if (system.notifys.length) {
-					  system.notifys = JSON.stringify(system.notifys);
-					} else {
-					  system.notifys = "";
-					}
+	${value.replace(/module.exports/g, 'var module_exports_action')}
+	module_exports_action = module_exports_action.bind(system);
+	try{
+		system.result = await module_exports_action(${parameter.join(",")});
+	} catch(ex) {
+		callback(ex, null); 
+	}
 
-                      callback(null, system);
-              }`;
+	if (system.notifys.length) {
+		system.notifys = JSON.stringify(system.notifys);
+	} else {
+		system.notifys = "";
+	}
+
+	callback(null, system);
+}`;
 	} else if (typeof moduleExports == "object") {
 		var functionstr = [];
 		var headerContent = value.split("module.exports")[0];
@@ -82,61 +108,82 @@ function codeFormat(value) {
 					: "";
 				functionstr.push(`${keyName}: async function(callback, system ${parameterStr}) {
 
-						if(!system) {
-							system = {};
-						}
+	if(!system) {
+		system = {};
+	}
 
-						if(!system.channel) {
-							system.channel = {};
-						}
+	if (!system.channel) {
+		system.channel = {};
+	}
+
+	if (system.channel.parameter) {
+		tryCatch(function(){
+			system.channel.parameter = JSON.parse(system.channel.parameter);
+		});
+	}
+
+	if (!system.sesstion) {
+		system.sesstion = {};
+	} else {
+		tryCatch(function(){
+			system.sesstion = JSON.parse(system.sesstion);
+		});
+	}
 	
-						if(!system.debugs) {
-							system.debugs = [];
-						}
+	if(!system.debugs) {
+		system.debugs = [];
+	}
 	
-						if(!system.notifys) {
-							system.notifys = [];
-						}
+	if(!system.notifys) {
+		system.notifys = [];
+	}
 
-						system.Notify = function(channel, message) {
-						  system.notifys.push({
-							channel: channel.toString(),
-							message: message.toString()
-						  });
-						};
+	system.Notify = function(channel, message) {
+		system.notifys.push({
+		channel: channel.toString(),
+		message: message.toString()
+		});
+	};
 
-						var console = {
-							log:function() {
-								if (system.isdebug){
-									if (arguments.length) {
-										system.debugs.push(arguments.length == 1 ? arguments[0] : arguments);
-									}
-								}
-							}
-						};
+	var console = {
+		log:function() {
+			if (system.isdebug){
+				if (arguments.length) {
+					system.debugs.push(arguments.length == 1 ? arguments[0] : arguments);
+				}
+			}
+		}
+	};
 
-                      var module_exports_action = ${moduleObject.toString()}.bind(system);
-                      try{
-                        system.result = await module_exports_action(${parameter.join(
-					","
-				)});
-                      } catch(ex) {
-                        callback(ex, null); 
-                      }
+	var module_exports_action = ${moduleObject.toString()}.bind(system);
+	try{
+		system.result = await module_exports_action(${parameter.join(",")});
+	} catch(ex) {
+		callback(ex, null); 
+	}
 
-					if (system.notifys.length) {
-					  system.notifys = JSON.stringify(system.notifys);
-					} else {
-					  system.notifys = "";
-					}
+	if (system.notifys.length) {
+		system.notifys = JSON.stringify(system.notifys);
+	} else {
+		system.notifys = "";
+	}
 
-                      callback(null, system);
-              }`);
+	callback(null, system);
+}`);
 			} else {
 				functionstr.push(`${key}:${moduleObject}`);
 			}
 		}
-		return `${headerContent} \n module.exports = { ${functionstr.join(
+		return `
+${headerContent} 
+var tryCatch = function(action){
+	try{
+		action();
+	} catch (e){
+		//TODO handle the exception
+	}
+}
+module.exports = { ${functionstr.join(
 			","
 		)} }`;
 	}
