@@ -1,7 +1,7 @@
 {
   "Function": {
     "IsDebug": true,
-    "Developers":[
+    "Developers": [
       {
         "name": "π‹¿Ì‘±",
         "user": "admin",
@@ -17,7 +17,7 @@
 
   "AdoNetGrainStorage": [
     "PubSubStore",
-	"iToolNotifyService",
+    "iToolNotifyService",
     "ChannelServiceStateStorge",
     "iToolCloudDatabaseOfNotifyMessage",
     "iToolCloudNodePackage",
