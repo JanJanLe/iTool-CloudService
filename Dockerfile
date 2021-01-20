@@ -14,6 +14,6 @@ RUN chown -R admin:admin /app
 RUN chmod 755 /app
 USER admin
 
-CMD ["-sql", "-rabbit", "-redis:","-debug:", "-advertisedip:", "-clusterid:", "-serviceId", "-dashboard"]
+CMD ["-sql", "-rabbit", "-redis:","-debug:", "-advertisedip:", "-clusterid:", "-serviceId", "-dashboard","-isusedashboard"]
 
 ENTRYPOINT ["dotnet", "Silo.CloudService.dll"]

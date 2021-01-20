@@ -23,7 +23,8 @@
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.8",
           "Orleans.Streams.RabbitMqStreamProvider": "1.0.0",
           "OrleansDashboard": "3.1.0",
-          "System.Data.SqlClient": "4.8.2"
+          "System.Data.SqlClient": "4.8.2",
+          "System.Reactive.Reference": "5.0.0.0"
         },
         "runtime": {
           "Silo.CloudService.dll": {}
@@ -1216,6 +1217,7 @@
           "System.Threading": "4.0.11"
         }
       },
+      "System.Reactive/5.0.0": {},
       "System.Reflection/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1624,6 +1626,7 @@
           "Core.Framework": "1.0.0",
           "Dapper": "2.0.35",
           "Dapper.SimpleCRUD": "2.2.0.1",
+          "System.Reactive": "5.0.0",
           "sqlSugarCore": "5.0.0.22"
         },
         "runtime": {
@@ -1711,6 +1714,14 @@
         },
         "runtime": {
           "Orleans.Streams.RabbitMqStreamProvider.dll": {}
+        }
+      },
+      "System.Reactive.Reference/5.0.0.0": {
+        "runtime": {
+          "System.Reactive.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.1"
+          }
         }
       }
     }
@@ -2263,7 +2274,7 @@
     "System.Collections/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
+      "sha512": "sha512-L9l7K2afJqnaLotpBmtG5iBA3jZ0+WfLZUSlqZ7uCmH8/pvZ1EIZ57VdU8B/yGd0BLN9zljATn8uIBboEO0sUQ==",
       "path": "system.collections/4.3.0",
       "hashPath": "system.collections.4.3.0.nupkg.sha512"
     },
@@ -2354,7 +2365,7 @@
     "System.Globalization/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kYdVd2f2PAdFGblzFswE4hkNANJBKRmsfa2X5LG2AcWE1c7/4t0pYae1L8vfZ5xvE2nK/R9JprtToA61OSHWIg==",
+      "sha512": "sha512-Y11PnOBSwSoCZoJkX8BR9c4ddt8U8BMGhnu6OBBjyou0RgoLeTjoke5qUiAZ+cR1YsO2HqO2cIhwPmtR7kC+Gg==",
       "path": "system.globalization/4.3.0",
       "hashPath": "system.globalization.4.3.0.nupkg.sha512"
     },
@@ -2375,7 +2386,7 @@
     "System.IO/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==",
+      "sha512": "sha512-Ad4UMvv8DxoLwG78hFGHMEvkn/XRjWs8B2xqMnj2sHh0FjneuoyCqpRCEi254x9hw5FWQkGBeOXqse7CoX+dJg==",
       "path": "system.io/4.3.0",
       "hashPath": "system.io.4.3.0.nupkg.sha512"
     },
@@ -2470,10 +2481,17 @@
       "path": "system.objectmodel/4.0.12",
       "hashPath": "system.objectmodel.4.0.12.nupkg.sha512"
     },
+    "System.Reactive/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "path": "system.reactive/5.0.0",
+      "hashPath": "system.reactive.5.0.0.nupkg.sha512"
+    },
     "System.Reflection/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==",
+      "sha512": "sha512-kW5GPV9Ki3NaSN+faKul1WjDBQvmyLP47HewWN+7guD6Z4x/WhPXK+kzmUQ4mVrqOCMtbdhUsexn2lNMXf/YHQ==",
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
     },
@@ -2515,7 +2533,7 @@
     "System.Reflection.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==",
+      "sha512": "sha512-D0JbOHMH7aUZlSXjU+PZkzZOTS2HY1GO/+mlLIELcqkxhUYROFSyF2s5inSqv0bqNPkdfb0ZnbD2ltJyKdt0Og==",
       "path": "system.reflection.primitives/4.3.0",
       "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
     },
@@ -2529,7 +2547,7 @@
     "System.Resources.ResourceManager/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/zrcPkkWdZmI4F92gL/TPumP98AVDu/Wxr3CSJGQQ+XN6wbRZcyfSKVoPo17ilb3iOr0cCRqJInGwNMolqhS8A==",
+      "sha512": "sha512-V/HehUWvRbE7kgcEX6WJ7xHK9c1w+7+BSwEIelN2nHnvIdOWa0KwWda2a+UsirWnXCQImjebuP9Ld8q6rxoEIA==",
       "path": "system.resources.resourcemanager/4.3.0",
       "hashPath": "system.resources.resourcemanager.4.3.0.nupkg.sha512"
     },
@@ -2543,7 +2561,7 @@
     "System.Runtime.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
+      "sha512": "sha512-v00zt7rqFObQ+CfNQiMvazoQrrb75Y3zdnQNmhu52DGKbHhU2ROK7IS5CQDkfej7yfydap9caE1LJc4JL9SLBA==",
       "path": "system.runtime.extensions/4.3.0",
       "hashPath": "system.runtime.extensions.4.3.0.nupkg.sha512"
     },
@@ -2655,7 +2673,7 @@
     "System.Text.Encoding/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
+      "sha512": "sha512-6wzPbw6lzXZm699rwv6DEgMtDsH2SmaTKmQOAnpdtK8zCNzsq/KNrx5vrpeo13oTtSajyc0nzCxTG2K+uKkoiQ==",
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },
@@ -2683,7 +2701,7 @@
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RpT2DA+L660cBt1FssIE9CAGpLFdFPuheB7pLpKpn6ZXNby7jDERe8Ua/Ne2xGiwLVG2JOqziiaVCGDon5sKFA==",
+      "sha512": "sha512-2r2ZL4NJh35ovBbfKqXu48ua0MV5RujEG/FFyowUkTcVjIYEl5IdnLcz567lbTuI7HVPhTCeBF+h9UqmlXRa/A==",
       "path": "system.text.regularexpressions/4.3.0",
       "hashPath": "system.text.regularexpressions.4.3.0.nupkg.sha512"
     },
@@ -2704,7 +2722,7 @@
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
+      "sha512": "sha512-a0wmauIX9kRYVl37nW31hCGFSdPsvIFN7+4he6nUWTTd4RMeioFOMRm++EN0LPSTHznCthQjIxMc0Vh507CZ3A==",
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
@@ -2822,6 +2840,11 @@
     },
     "Orleans.Streams.RabbitMqStreamProvider/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Reactive.Reference/5.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

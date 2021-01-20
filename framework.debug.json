@@ -2,7 +2,7 @@
 
   "Function": {
     "IsDebug": true,
-    "Developers":[
+    "Developers": [
       {
         "name": "管理员",
         "user": "admin",
@@ -30,13 +30,13 @@
   ],
 
   "ConnectionStrings": {
-    "MSSQL": "Data Source=172.17.64.1,2433;database=Project.Orleans;uid=sa;pwd=zhuJIAN320;MultipleActiveResultSets=true;"
+    "MSSQL": "Data Source=172.23.128.1,2433;database=Project.Orleans;uid=sa;pwd=zhuJIAN320;MultipleActiveResultSets=true;"
   },
 
   "Orleans": {
-    "advertisedIP": "172.17.64.1",
-    "ClusterId": "SocketServiceCluster",
-    "ServiceId": "SocketService",
+    "advertisedIP": "172.23.128.1",
+    "ClusterId": "iToolServiceCluster",
+    "ServiceId": "iToolSocketService",
     "SiloPort": "12459",
     "GatewayPort": "15269"
   },
@@ -51,7 +51,7 @@
   },
 
   "RabbitMQ": {
-    "HostName": "172.17.64.1",
+    "HostName": "172.23.128.1",
     "Port": 5672,
     "UserName": "admin",
     "Password": "admin",
